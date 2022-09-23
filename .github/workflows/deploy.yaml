@@ -23,8 +23,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          CI : ""
 
       - name: Deploy
         uses: lbertenasco/s3-deploy@v1
