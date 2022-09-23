@@ -1,12 +1,19 @@
-name: S3 deploy with cloudFront
+
+name: CD
+
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
- steps:
+    branches: [ main ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout source code
         uses: actions/checkout@v2 # workflow에서 액세스할 수 있도록 저장소를 체크아웃
         
@@ -22,7 +29,6 @@ on:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          
       - name: Invalidate CloudFront Cache # 새로 리소스를 업데이트할 때 기존 캐시 무효화
         uses: chetan/invalidate-cloudfront-action@master
         env:
