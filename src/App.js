@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div>
       cicd되냐?
+      안되냐?
     </div>
   );
 }
