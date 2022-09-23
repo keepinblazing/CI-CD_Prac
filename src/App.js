@@ -6,6 +6,7 @@ const App = () => {
       cicd되냐?
       안되냐?
       왜안되냐?
+      cicd되냐?
     </div>
   );
 }
